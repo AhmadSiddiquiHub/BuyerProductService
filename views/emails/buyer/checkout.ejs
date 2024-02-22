@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div style="max-width: 800px; border: 1px solid #000; margin: auto; padding: 0rem; border-radius: 5px; width: 100%;"> 
+            
+            <!-- Header -->
+
+            <div style="display: flex; justify-content: center; align-items: center; width:100%; margin-bottom: 1rem;">
+                <div>
+                    <h2 style="text-align: center; text-transform: uppercase; font-family: Calibri; font-size: 21px; color: rgb(92, 88, 88);">Welcome to CyberMart</h2>
+                </div>
+<!--                 
+                <div>
+                    <div style="background-color: cadetblue; height: auto; display: flex; justify-content: center; align-items: center;">
+                        <h2 style="text-align: center; text-transform: uppercase; font-family: Calibri; font-size: 21px;">Place Image Here</h2>
+                    </div>
+                </div> -->
+            </div>
+
+            <!-- Template Content -->
+            <%- emailContent %>
+
+
+            <%- include('partials/footer.ejs') %>
+        
+        </div>
+    </div>
+</body>
+</html>

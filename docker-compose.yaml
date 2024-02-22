@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  buyer_product_service:
+    container_name: BuyerProductService
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - '${APP_PORT}:4005'
+    network_mode: "host"
+    environment:
+      - DB_HOST= '${TYPEORM_HOST}'
+      - DB_USER= '${TYPEORM_USERNAME}'
+      - DB_PASSWORD= '${TYPEORM_PASSWORD}'
+      - DB_NAME= '${TYPEORM_DATABASE}'
+      - DB_PORT= '${TYPEORM_PORT}'
+    stdin_open: true
+    tty: true

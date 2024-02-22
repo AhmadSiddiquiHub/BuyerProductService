@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: buyer-product-service
+  labels:
+    app: buyer-product-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: buyer-product-service
+  template:
+    metadata:
+      labels:
+        app: buyer-product-service
+    spec:
+      containers:
+      - name: buyer-product-service
+        image: 835148938591.dkr.ecr.ap-south-2.amazonaws.com/buyer_product:latest
+        ports:
+        - containerPort: 4005
+        #resources:
+          #requests:
+           # memory: "2000Mi"
+          #limits:
+           # memory: "2200Mi"
+        envFrom:
+        - configMapRef:
+            name: buyer-cm
+        - configMapRef:
+            name: buyer-product-cm
+        - secretRef:
+            name: buyer-secrets
+        - secretRef:
+            name: db-secrets

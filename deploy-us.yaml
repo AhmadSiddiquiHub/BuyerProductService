@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: buyer-product-service
+  labels:
+    app: buyer-product-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: buyer-product-service
+  template:
+    metadata:
+      labels:
+        app: buyer-product-service
+    spec:
+      containers:
+      - name: buyer-product-service
+        image: 092026438222.dkr.ecr.us-east-2.amazonaws.com/buyer_product:latest
+        ports:
+        - containerPort: 4005
+        envFrom:
+        - configMapRef:
+            name: buyer-cm
+        - configMapRef:
+            name: buyer-product-cm
+        - secretRef:
+            name: buyer-secrets-new
